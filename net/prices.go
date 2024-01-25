@@ -132,18 +132,18 @@ func UpdateNanoCoingeckoPrices() error {
 		if val, ok := cgResp.MarketData.CurrentPrice[data_name]; ok {
 			if data_name == "btc" {
 				fmt.Printf("%s %f\n", "Coingecko NANO-"+currency, midPriceXDG)
-				database.GetRedisDB().Hset("prices", "coingecko:nano-"+data_name, midPriceXDG) // btcPrice is the xdg price in nano
+				database.GetRedisDB().Hset("prices", "coingecko:ananos-"+data_name, midPriceXDG) // btcPrice is the xdg price in nano
 				} else {
 					val := val * midPriceXDG 
 					fmt.Printf("%s %f\n", "Coingecko NANO-"+currency, val)
-					database.GetRedisDB().Hset("prices", "coingecko:nano-"+data_name, val)
+					database.GetRedisDB().Hset("prices", "coingecko:ananos-"+data_name, val)
 			}
 		} else {
 			klog.Errorf("Error getting coingecko price for %s", data_name)
 		}
 	}
 
-	usdPrice, err := database.GetRedisDB().Hget("prices", "coingecko:nano-usd")
+	usdPrice, err := database.GetRedisDB().Hget("prices", "coingecko:ananos-usd")
 	if err != nil {
 		klog.Errorf("Error getting coingecko price for nano-usd %s", err)
 		return err
@@ -164,7 +164,7 @@ func UpdateNanoCoingeckoPrices() error {
 		return err
 	}
 	convertedves := usdPriceFloat * bolivarPriceFloat * midPriceXDG
-	if err := database.GetRedisDB().Hset("prices", "coingecko:nano-ves", convertedves); err != nil {
+	if err := database.GetRedisDB().Hset("prices", "coingecko:ananos-ves", convertedves); err != nil {
 		klog.Errorf("Error setting coingecko price for nano-ves %s", err)
 		return err
 	}
@@ -182,7 +182,7 @@ func UpdateNanoCoingeckoPrices() error {
 		return err
 	}
 	convertedars := usdPriceFloat * arsPriceFloat * midPriceXDG
-	if err := database.GetRedisDB().Hset("prices", "coingecko:nano-ars", convertedars); err != nil {
+	if err := database.GetRedisDB().Hset("prices", "coingecko:ananos-ars", convertedars); err != nil {
 		klog.Errorf("Error setting coingecko price for nano-ves %s", err)
 		return err
 	}
@@ -259,9 +259,9 @@ func UpdateBananoCoingeckoPrices() error {
 	fmt.Printf("%s %f\n", "Coingecko BANANO-ARS", convertedars)
 
 	// Nano price
-	// nanoprice = float(rdata.hget("prices", "coingecko:banano-btc")) / float(rdata.hget("prices", "coingecko:nano-btc"))
+	// nanoprice = float(rdata.hget("prices", "coingecko:banano-btc")) / float(rdata.hget("prices", "coingecko:ananos-btc"))
 	// rdata.hset("prices", "coingecko:banano-nano", f"{nanoprice:.16f}")
-	nanoprice, err := database.GetRedisDB().Hget("prices", "coingecko:nano-btc")
+	nanoprice, err := database.GetRedisDB().Hget("prices", "coingecko:ananos-btc")
 	if err != nil {
 		klog.Errorf("Error getting price for nano-btc from redis %s", err)
 		return err
