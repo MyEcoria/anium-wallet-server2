@@ -115,7 +115,7 @@ func UpdateNanoCoingeckoPrices() error {
 	}
 	var midPriceXDG float64
 	for _, market := range markets {
-		if (market.Key == "XRO/XNO"){
+		if (market.Key == "ANA/XNO"){
 			midPriceXDG = market.MidPrice
 		}
 	}

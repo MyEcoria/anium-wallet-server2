@@ -7,7 +7,7 @@ import (
 	"strconv"
 )
 
-const rawPerNanoStr = "1000000000000000000000000000000"
+const rawPerNanoStr = "10000000000000000000000000000"
 const rawPerBananoStr = "100000000000000000000000000000"
 
 var rawPerBanano, _ = new(big.Float).SetString(rawPerBananoStr)
