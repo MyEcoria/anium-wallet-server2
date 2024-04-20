@@ -343,7 +343,7 @@ func main() {
 		}
 		var nanoPriceFloat float64
 		if *bananoMode {
-			nanoPriceStr, err := database.GetRedisDB().Hget("prices", fmt.Sprintf("coingecko:%s-ananos", pricePrefix))
+			nanoPriceStr, err := database.GetRedisDB().Hget("prices", fmt.Sprintf("coingecko:%s-nano", pricePrefix))
 			if err != nil {
 				klog.Errorf("Error getting nano price in cron: %v", err)
 				return
@@ -380,5 +380,5 @@ func main() {
 	})
 	s.StartAsync()
 
-	http.ListenAndServe(":3000", app)
+	http.ListenAndServe(":3001", app)
 }

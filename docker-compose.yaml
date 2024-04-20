@@ -40,11 +40,11 @@ services:
             - DATABASE_URL=postgres://postgres:postgres@db:5432/natrium
             - REDIS_HOST=redis
             - GOPRIVATE=github.com/appditto
-            - RPC_URL=https://explorer.raione.cc/rpc
-            - WORK_URL=https://api.raione.cc/api
-            - NODE_WS_URL=wss://ws.raione.cc/ws
+            - RPC_URL=http://192.168.1.41:4444/
+            - WORK_URL=http://192.168.1.41:4444/
+            - NODE_WS_URL=wss://nodes.nanswap.com/ws/?ticker=ANA&api=e63kaanAPbb2PXd87gnYMVgp4Iw3dbAWklLItYaaS7As5iqWUWKZeJAD6YqPwyqaah2i
         ports:
-            - '3003:3000'
+            - '3004:3001'
         build:
             context: .
             dockerfile: Dockerfile
