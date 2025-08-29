@@ -9,8 +9,6 @@ services:
     db:
         container_name: natrium_postgres
         image: postgres:14
-        ports:
-            - '127.0.0.1:54323:5432'
         restart: unless-stopped
         environment:
             - POSTGRES_DB=natrium
@@ -44,7 +42,7 @@ services:
             - WORK_URL=${WORK_URL}
             - NODE_WS_URL=${NODE_WS_URL}
         ports:
-            - '3004:3001'
+            - '3005:3001'
         build:
             context: .
             dockerfile: Dockerfile
