@@ -42,7 +42,7 @@ services:
             - WORK_URL=${WORK_URL}
             - NODE_WS_URL=${NODE_WS_URL}
         ports:
-            - '3005:3001'
+            - '3002:3002'
         build:
             context: .
             dockerfile: Dockerfile
