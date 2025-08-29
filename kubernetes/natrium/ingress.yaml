@@ -36,4 +36,4 @@ spec:
           service:
             name: natrium-server
             port:
-              number: 3000
+              number: 3002

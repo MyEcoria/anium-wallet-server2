@@ -22,7 +22,7 @@ spec:
             cpu: 100m
             memory: 200Mi
         ports:
-        - containerPort: 3000
+        - containerPort: 3002
           name: api
         env:
           - name: REDIS_HOST

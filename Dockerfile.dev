@@ -21,7 +21,7 @@ RUN echo "source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highl
 # Working directory inside container
 WORKDIR /app
 
-EXPOSE  3000
+EXPOSE  3002
 
 RUN go install github.com/go-delve/delve/cmd/dlv@latest && go install github.com/Khan/genqlient@latest
 

@@ -83,7 +83,7 @@ The HTTP callback is required for push notifications. This can be configured in 
 
 ```
 "callback_address": "::ffff:127.0.0.1",
-"callback_port": "3000",
+"callback_port": "3002",
 "callback_target": "\/callback",
 ```
 
